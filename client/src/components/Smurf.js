@@ -6,8 +6,8 @@ const CardText = styled.p``;
 
 class Smurf extends React.Component {
   render() {
-    console.log(smurf);
     const { smurf } = this.props;
+    console.log(smurf);
 
     return (
       <div data-testid="smurf" className="card">

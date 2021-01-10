@@ -54,9 +54,11 @@ export const fetchSmurfs = () => (dispatch) => {
     .get("http://localhost:3333/smurfs")
     .then((res) => {
       console.log(res.data);
+      dispatch(fetchListSuccess(res.data));
     })
     .catch((err) => {
       console.log(err.message);
+      dispatch(fetchListError(err.message));
     });
 };
 
