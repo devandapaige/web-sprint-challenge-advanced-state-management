@@ -3,7 +3,7 @@ import * as actions from "../actions/index";
 export const initialState = {
   smurfs: [],
   loading: false,
-  error: "",
+  error: "all is well",
 };
 
 const reducer = (state = initialState, action) => {

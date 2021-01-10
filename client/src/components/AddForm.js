@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { addSuccess, formError } from "../actions/index";
+import { addSmurf, formError } from "../actions/index";
 
 class AddForm extends React.Component {
   constructor(props) {
@@ -14,11 +14,9 @@ class AddForm extends React.Component {
   }
 
   handleChange = (e) => {
-    const name = e.target.name;
-    const value = e.target.value;
     this.setState({
       ...this.state,
-      [name]: value,
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -28,7 +26,22 @@ class AddForm extends React.Component {
       this.setState({
         ...this.state,
       });
-      this.props.formError("Name required");
+      this.props.formError("All fields required.");
+    } else if (this.state.position === "") {
+      this.setState({
+        ...this.state,
+      });
+      this.props.formError("All fields required.");
+    } else if (this.state.nickname === "") {
+      this.setState({
+        ...this.state,
+      });
+      this.props.formError("All fields required.");
+    } else if (this.state.description === "") {
+      this.setState({
+        ...this.state,
+      });
+      this.props.formError("All fields required.");
     } else {
       const newSmurf = {
         id: Date.now(),
@@ -37,7 +50,7 @@ class AddForm extends React.Component {
         nickname: this.state.nickname,
         description: this.state.description,
       };
-      this.props.addSuccess(newSmurf);
+      this.props.addSmurf(newSmurf);
       this.setState({
         name: "",
         position: "",
@@ -59,6 +72,7 @@ class AddForm extends React.Component {
               name="name"
               id="name"
               value={this.state.name}
+              required
             />
           </div>
           <div className="form-group">
@@ -69,6 +83,7 @@ class AddForm extends React.Component {
               name="position"
               id="position"
               value={this.state.position}
+              required
             />
           </div>
           <div className="form-group">
@@ -79,6 +94,7 @@ class AddForm extends React.Component {
               name="nickname"
               id="nickname"
               value={this.state.nickname}
+              required
             />
           </div>
           <div className="form-group">
@@ -89,6 +105,7 @@ class AddForm extends React.Component {
               name="description"
               id="description"
               value={this.state.description}
+              required
             />
           </div>
           <div
@@ -110,7 +127,7 @@ const mapStateToProps = (state) => {
     error: state.error,
   };
 };
-const mapDispatchToProps = { addSuccess, formError };
+const mapDispatchToProps = { addSmurf, formError };
 export default connect(mapStateToProps, mapDispatchToProps)(AddForm);
 
 //Task List:
