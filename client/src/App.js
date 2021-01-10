@@ -10,7 +10,7 @@ class App extends Component {
     return (
       <div className="App">
         <nav className="navbar navbar-dark bg-primary">
-          <a className="navbar-brand">Smurf Village Database</a>
+          <p className="navbar-brand">Smurf Village Database</p>
         </nav>
         <main>
           <AddForm />

@@ -19,7 +19,7 @@ const reducer = (state = initialState, action) => {
         loading: false,
         smurfs: action.payload,
       };
-    case actions.FETCH_ERROR:
+    case actions.FETCH_LIST_ERROR:
       return {
         ...state,
         loading: false,
