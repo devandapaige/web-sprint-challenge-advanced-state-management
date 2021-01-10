@@ -1,4 +1,4 @@
-import { LOADING, SUCCESS, LOADING } from "../actions/index";
+import * as actions from "../actions/index";
 
 export const initialState = {
   smurfs: [],
@@ -7,19 +7,36 @@ export const initialState = {
 };
 
 const reducer = (state = initialState, action) => {
-  switch (action) {
-    case LOADING:
+  switch (action.type) {
+    case actions.FETCH_LIST_LOADING:
       return {
         ...state,
         loading: true,
       };
-    case SUCCESS:
+    case actions.FETCH_LIST_SUCCESS:
       return {
         ...state,
         loading: false,
-        data: action.payload,
+        smurfs: action.payload,
       };
-    case ERROR:
+    case actions.FETCH_ERROR:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
+    case actions.ADD_LOADING:
+      return {
+        ...state,
+        loading: true,
+      };
+    case actions.ADD_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        smurfs: action.payload,
+      };
+    case actions.ADD_ERROR:
       return {
         ...state,
         loading: false,

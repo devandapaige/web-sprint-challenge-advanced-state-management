@@ -10,47 +10,40 @@ export const FORM_ERROR = "FORM_ERROR";
 export const fetchListLoading = () => {
   return {
     type: FETCH_LIST_LOADING,
-    loading: true,
   };
 };
 export const fetchListSuccess = (smurfList) => {
   return {
     type: FETCH_LIST_SUCCESS,
     payload: smurfList,
-    loading: false,
   };
 };
 export const fetchListError = (error) => {
   return {
     type: FETCH_LIST_ERROR,
     payload: error,
-    loading: false,
   };
 };
 export const addLoading = () => {
   return {
     type: ADD_LOADING,
-    loading: true,
   };
 };
 export const addSuccess = (smurfList) => {
   return {
     type: ADD_SUCCESS,
     payload: smurfList,
-    loading: false,
   };
 };
 export const addError = (error) => {
   return {
     type: ADD_ERROR,
     payload: error,
-    loading: false,
   };
 };
 export const formError = (error) => {
   return {
     type: FORM_ERROR,
-    loading: false,
     payload: error,
   };
 };
