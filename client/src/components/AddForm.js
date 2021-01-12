@@ -108,13 +108,12 @@ class AddForm extends React.Component {
               required
             />
           </div>
-          <div
+         
+            {this.state.error ?  <div
             data-testid="errorAlert"
             className="alert alert-danger"
             role="alert"
-          >
-            Error: {this.props.error}
-          </div>
+          >Error: {this.state.error} </div> : ""}
           <button onClick={(e) => this.handleSubmit(e)}>Submit Smurf</button>
         </form>
       </section>
